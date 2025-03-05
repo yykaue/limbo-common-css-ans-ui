@@ -1,0 +1,65 @@
+@import "lib-base";
+@import "lib-reset";
+
+body {
+  background-color: #F0F2F5;
+}
+
+.icon-svg {
+  width: 14px; 
+  height: 14px;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.loader-square {
+  display: block;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: wave_square 1s ease-in infinite;
+}
+
+@keyframes wave_square {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 255,255, 1),
+  0 0 0 20px rgba(255, 255,255, 0.2),
+  0 0 0 40px rgba(255, 255,255, 0.6),
+  0 0 0 60px rgba(255, 255,255, 0.4),
+  0 0 0 80px rgba(255, 255,255, 0.2)
+  }
+
+  100% {
+    box-shadow: 0 0 0 80px rgba(255, 255,255, 0),
+    0 0 0 60px rgba(255, 255,255, 0.2),
+    0 0 0 40px rgba(255, 255,255, 0.4),
+    0 0 0 20px rgba(255, 255,255, 0.6),
+    0 0 0 0px rgba(255, 255,255, 1)
+  }
+}
+
+$t: top;
+$b: bottom;
+$l: left;
+$r: right;
+$List: (t, $t, 10),
+        (b, $b, 10),
+        (l, $l, 10),
+        (l, $l, 20),
+        (r, $r, 10);
+@each $name, $opt, $num in $List {
+  .m#{$name}#{$num} {
+    margin-#{$opt}: #{$num}px;
+  }
+  .p#{$name}#{$num} {
+    padding-#{$opt}: #{$num}px;
+  }
+}
